@@ -23,8 +23,6 @@
     expanded = true;
   }
 
-  let direction: 'up' | 'down' = 'up';
-
   const MAX_WIDTH = 512;
 
   function updatePos() {
@@ -37,10 +35,8 @@
 
     if (triggerPos.top > contentPos.height + TOOLTIP_MARGIN * 2) {
       newTop = triggerPos.top - contentPos.height - TOOLTIP_MARGIN;
-      direction = 'up';
     } else {
       newTop = triggerPos.bottom;
-      direction = 'down';
     }
 
     const triggerCenter = triggerPos.left + triggerPos.width / 2;
@@ -89,7 +85,6 @@
       {/if}
     </div>
   </div>
-  <div class="triangle" class:down={direction === 'down'} class:visible={expanded} />
 </span>
 
 <style>
@@ -114,7 +109,7 @@
     border-radius: 1rem;
     padding: 0.5rem 0.75rem;
     max-width: 512px;
-    color: var(--color-foreground-level-6);
+    color: var(--color-foreground);
     text-align: left;
   }
 

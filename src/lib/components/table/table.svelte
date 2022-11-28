@@ -101,11 +101,7 @@
     border-spacing: 0;
     box-sizing: border-box;
     min-width: 100%;
-    --border: 2px solid var(--color-foreground-level-1);
-  }
-
-  tfoot {
-    color: gray;
+    --border: 1px solid var(--color-foreground);
   }
 
   tbody {
@@ -113,19 +109,15 @@
   }
 
   tbody > tr:first-child > td:first-child {
-    border-radius: 0.5rem 0;
-  }
-
-  tbody > tr:first-child > td:last-child {
-    border-radius: 0 0.5rem;
+    border-radius: 1rem 0 0 0;
   }
 
   tbody > tr:last-child > td:first-child {
-    border-radius: 0 0 0 0.5rem;
+    border-radius: 0 0 0 1rem;
   }
 
   tbody > tr:last-child > td:last-child {
-    border-radius: 0 0 0.5rem 0;
+    border-radius: 0 0 1rem 0;
   }
 
   tbody > tr > td {
@@ -145,17 +137,17 @@
   }
 
   tbody > tr:only-child > td:first-child {
-    border-radius: 0.5rem 0 0 0.5rem;
+    border-radius: 1rem 0 0 1rem;
   }
 
   tbody > tr:only-child > td:last-child {
-    border-radius: 0 0.5rem 0.5rem 0;
+    border-radius: 0 0 1rem 0;
   }
 
   td {
     padding: 0.75rem;
     vertical-align: middle;
-    color: var(--color-foreground-level-6);
+    color: var(--color-foreground);
   }
 
   td.sorted {
@@ -172,7 +164,7 @@
     text-align: left;
     padding: 0.75rem;
     user-select: none;
-    color: var(--color-foreground-level-5);
+    color: var(--color-foreground);
   }
 
   thead th:first-child {
@@ -197,6 +189,6 @@
   }
 
   tr.cursor-pointer:hover {
-    background-color: var(--color-foreground-level-1);
+    background-color: var(--color-primary-level-1);
   }
 </style>

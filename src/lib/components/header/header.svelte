@@ -34,7 +34,7 @@
   }
 
   header.elevated {
-    box-shadow: var(--elevation-medium);
+    box-shadow: var(--elevation-low);
   }
 
   .wallet {

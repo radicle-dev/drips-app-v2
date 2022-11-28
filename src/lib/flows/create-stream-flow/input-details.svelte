@@ -1,6 +1,6 @@
 <script lang="ts">
   import Dropdown from 'radicle-design-system/Dropdown.svelte';
-  import Emoji from 'radicle-design-system/Emoji.svelte';
+  import Emoji from '$lib/components/emoji/Emoji.svelte';
   import FormField from '$lib/components/form-field/form-field.svelte';
   import StepHeader from '$lib/components/step-header/step-header.svelte';
   import StepLayout from '$lib/components/step-layout/step-layout.svelte';
@@ -381,8 +381,8 @@
 
   .list-container {
     max-height: 24rem;
-    border: 1px solid var(--color-foreground-level-3);
-    border-radius: 0.5rem;
+    border: 1px solid var(--color-foreground);
+    border-radius: 1rem 0 1rem 1rem;
     overflow: scroll;
   }
 </style>

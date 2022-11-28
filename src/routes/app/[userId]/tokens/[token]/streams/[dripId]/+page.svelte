@@ -268,10 +268,6 @@
     justify-content: flex-end;
   }
 
-  h5 {
-    color: var(--color-foreground-level-5);
-  }
-
   .details {
     display: flex;
     flex-direction: column;
@@ -290,7 +286,6 @@
 
   .key-value > .value {
     font-size: 1.5rem;
-    color: var(--color-foreground-level-6);
   }
 
   .key-value > .value.highlight {
