@@ -8,7 +8,7 @@
   import parseTokenAmount from '$lib/utils/parse-token-amount';
   import unreachable from '$lib/utils/unreachable';
   import { formatBytes32String, formatUnits, toUtf8Bytes } from 'ethers/lib/utils';
-  import Dropdown from 'radicle-design-system/Dropdown.svelte';
+  import Dropdown from '$lib/components/dropdown/dropdown.svelte';
   import TextInput from 'radicle-design-system/TextInput.svelte';
   import { AddressDriverPresets, constants, Utils } from 'radicle-drips';
   import assert from '$lib/utils/assert';
@@ -41,19 +41,18 @@
     tokens.getByAddress(stream.dripsConfig.amountPerSecond.tokenAddress) ?? unreachable();
 
   let newName: string | undefined = stream.name;
-  let newAmountValue: string | undefined = formatUnits(
-    stream.dripsConfig.amountPerSecond.amount / BigInt(constants.AMT_PER_SEC_MULTIPLIER),
-    token.info.decimals,
-  );
   let newSelectedMultiplier = '1';
+  let newAmountValue: string | undefined = formatUnits(
+    stream.dripsConfig.amountPerSecond.amount / BigInt(newSelectedMultiplier),
+    token.info.decimals + constants.AMT_PER_SEC_EXTRA_DECIMALS,
+  );
 
   $: newAmountValueParsed = newAmountValue
-    ? parseTokenAmount(newAmountValue, token.info.decimals)
+    ? parseTokenAmount(newAmountValue, token.info.decimals + constants.AMT_PER_SEC_EXTRA_DECIMALS)
     : undefined;
 
   $: newAmountPerSecond = newAmountValueParsed
-    ? (newAmountValueParsed * BigInt(constants.AMT_PER_SEC_MULTIPLIER)) /
-      BigInt(newSelectedMultiplier)
+    ? newAmountValueParsed / BigInt(newSelectedMultiplier)
     : undefined;
 
   $: nameUpdated = newName !== stream.name;
